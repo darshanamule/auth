@@ -2,8 +2,8 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-   "username" : "darshana",
-   "email" : "darshana@gmail.com",
+   "username" : "darshana2",
+   "email" : "darshana2@gmail.com",
    "password": "1234" 
 }
 
@@ -12,8 +12,8 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-   "username" : "darshana",
-   "password": "4321" 
+   "username" : "darshana2",
+   "password": "1234" 
 }
 
 ###
@@ -21,7 +21,42 @@ POST http://localhost:3000/forgetPassword
 Content-Type: application/json
 
 {
-   "username" : "darshana",
-   "email" : "darshana@gmail.com",
+   "username" : "darshana2",
+   "email" : "darshana2@gmail.com",
    "newPass": "4321" 
 }
+
+###
+GET http://localhost:3000/post 
+
+###
+POST http://localhost:3000/post/create
+Content-Type: application/json
+
+{
+   "postContent" : "This is a new post"
+}
+
+###
+PATCH http://localhost:3000/post/61c81b7d87fd100a0d944e72
+Content-Type: application/json
+
+{
+   "updatedContent" : "Updated post"
+}
+
+###
+DELETE http://localhost:3000/post/61c81b7d87fd100a0d944e72
+
+###
+PATCH http://localhost:3000/post/like/61c81b7d87fd100a0d944e72
+
+###
+PATCH http://localhost:3000/post/comment/61c81b7d87fd100a0d944e72
+Content-Type: application/json
+
+{
+   "comment" : "Great Post"
+}
+
+

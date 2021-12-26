@@ -1,7 +1,7 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-const authController = require('./controllers/authController')
 const session = require('express-session')
 const MongoDbStore = require('connect-mongo');      
 const passport = require('passport')
@@ -9,14 +9,28 @@ const passport = require('passport')
 const PORT = process.env.PORT || 3000
 
 // Database connection
-const url = 'mongodb://localhost/test';
+// const url = 'mongodb://localhost/test';
+const url = process.env.DB
 
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true});
-const connection = mongoose.connection ;
-connection.on('error', console.error.bind(console, 'connection error:'));
-connection.once('open', () => {
-    console.log('Database connected...');
-});
+const connectionParams={
+    useNewUrlParser: true,
+    useUnifiedTopology: true 
+}
+mongoose.connect(url)
+    .then( () => {
+        console.log('Connected to database ')
+    })
+    .catch( (err) => {
+        console.error(`Error connecting to the database. \n${err}`);
+    })
+
+// mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true});
+// const connection = mongoose.connection ;
+
+// connection.on('error', console.error.bind(console, 'connection error:'));
+// connection.once('open', () => {
+//     console.log('Database connected...');
+// });
 
 // Session store
 let mongoStore = MongoDbStore.create({
@@ -56,9 +70,7 @@ app.get('/', (req, res) => {
     res.send('Helloo')
 })
 
-app.post('/register', authController().postRegister)
-app.post('/login', authController().postLogin)
-app.post('/forgetPassword', authController().forgetPass)
+app.use('/', require('./routes/web'))
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);

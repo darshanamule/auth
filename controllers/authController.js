@@ -6,10 +6,6 @@ function authController() {
     
     return  {
         
-        // login(req, res) {
-        //     res.render('auth/login')
-        // },
-
         postLogin(req, res, next) {
             
             const { username, password } = req.body
@@ -36,10 +32,6 @@ function authController() {
                 })
             })(req, res, next)
         },   
-
-        // register(req, res) {
-        //     res.render('auth/register')
-        // },
 
         async postRegister(req, res) {
             const { username, email, password } = req.body
@@ -103,10 +95,6 @@ function authController() {
             )
         }
 
-        // logout(req, res) {
-        //     req.logout()
-        //     return res.redirect('/')
-        // }
      }
 }
 
