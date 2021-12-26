@@ -1,4 +1,4 @@
-POST http://localhost:3000/register
+POST https://banao-test-app.herokuapp.com/register
 Content-Type: application/json
 
 {
@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/login
+POST https://banao-test-app.herokuapp.com/login
 Content-Type: application/json
 
 {
@@ -17,7 +17,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/forgetPassword
+POST https://banao-test-app.herokuapp.com/forgetPassword
 Content-Type: application/json
 
 {
@@ -27,10 +27,10 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/post 
+GET https://banao-test-app.herokuapp.com/post 
 
 ###
-POST http://localhost:3000/post/create
+POST https://banao-test-app.herokuapp.com/post/create
 Content-Type: application/json
 
 {
@@ -38,7 +38,7 @@ Content-Type: application/json
 }
 
 ###
-PATCH http://localhost:3000/post/61c81b7d87fd100a0d944e72
+PATCH https://banao-test-app.herokuapp.com/post/61c820f20280de21978a374c
 Content-Type: application/json
 
 {
@@ -46,13 +46,13 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/post/61c81b7d87fd100a0d944e72
+DELETE https://banao-test-app.herokuapp.com/post/61c820f20280de21978a374c
 
 ###
-PATCH http://localhost:3000/post/like/61c81b7d87fd100a0d944e72
+PATCH https://banao-test-app.herokuapp.com/post/like/61c820f20280de21978a374c
 
 ###
-PATCH http://localhost:3000/post/comment/61c81b7d87fd100a0d944e72
+PATCH https://banao-test-app.herokuapp.com/post/comment/61c820f20280de21978a374c
 Content-Type: application/json
 
 {
